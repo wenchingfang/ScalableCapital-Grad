@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graduate Program Application | Wen-Ching Fang</title>
+    <style>
+      :root {
+        --green: #00d084;
+        --mint: #d7ffec;
+        --navy: #071f1a;
+        --deep: #0b2b23;
+        --cream: #f6f3ea;
+        --white: #ffffff;
+        --muted: rgba(246, 243, 234, 0.78);
+        --border: rgba(255, 255, 255, 0.14);
+        --panel: rgba(7, 31, 26, 0.76);
+        --panel-soft: rgba(255, 255, 255, 0.055);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--navy);
+        color: var(--cream);
+        line-height: 1.6;
+      }
+
+      a,
+      button {
+        font: inherit;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: auto;
+      }
+
+      .skip-link:focus {
+        left: 16px;
+        top: 16px;
+        z-index: 999;
+        background: white;
+        color: #111827;
+        padding: 10px 14px;
+        border-radius: 999px;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(14px);
+        background: rgba(7, 31, 26, 0.86);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding: 16px 0;
+      }
+
+      .brand {
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--green);
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        color: var(--cream);
+        opacity: 0.85;
+        text-decoration: none;
+        font-size: 0.95rem;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible,
+      .brand:hover,
+      .brand:focus-visible {
+        opacity: 1;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(90deg, rgba(7, 31, 26, 0.94) 0%, rgba(7, 31, 26, 0.76) 42%, rgba(7, 31, 26, 0.92) 100%),
+          url("./munich-fintech.jpeg");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at top left, rgba(0, 208, 132, 0.24), transparent 28%),
+          radial-gradient(circle at 80% 20%, rgba(215, 255, 236, 0.12), transparent 24%);
+      }
+
+      .hero-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1.25fr 0.85fr;
+        gap: 40px;
+        padding: 88px 0;
+        align-items: start;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      .hero h1 {
+        max-width: 860px;
+        font-size: clamp(2.7rem, 6vw, 5.25rem);
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+        color: var(--white);
+        margin-bottom: 24px;
+      }
+
+      .hero-copy {
+        max-width: 700px;
+        font-size: clamp(1.55rem, 3.4vw, 2.35rem);
+        color: rgba(255, 255, 255, 0.88);
+        margin-bottom: 32px;
+      }
+
+      .cta {
+        display: inline-block;
+        border: 0;
+        border-radius: 999px;
+        background: var(--green);
+        color: #061915;
+        font-weight: 800;
+        text-decoration: none;
+        padding: 14px 24px;
+        box-shadow: 0 10px 30px rgba(0, 208, 132, 0.2);
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        padding: 28px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+      }
+
+      .eyebrow {
+        color: var(--green);
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 0.82rem;
+        font-weight: 700;
+        margin-bottom: 14px;
+      }
+
+      .panel-intro {
+        color: rgba(255, 255, 255, 0.86);
+        margin-bottom: 22px;
+      }
+
+      .expect-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .expect-item {
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        gap: 14px;
+        align-items: start;
+        padding: 16px;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        background: rgba(15, 23, 42, 0.42);
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .expect-number {
+        width: 32px;
+        height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        background: rgba(0, 208, 132, 0.16);
+        color: var(--green);
+        font-weight: 800;
+        font-size: 0.95rem;
+      }
+
+      .expect-item strong {
+        display: block;
+        color: var(--white);
+        font-size: 1.03rem;
+        margin-bottom: 4px;
+      }
+
+      main section {
+        scroll-margin-top: 88px;
+      }
+
+      .main-content {
+        padding: 72px 0 88px;
+      }
+
+      .intro-block {
+        max-width: 790px;
+        margin-bottom: 72px;
+      }
+
+      .narrow-section {
+        max-width: 980px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .section-label {
+        color: var(--green);
+        text-transform: uppercase;
+        letter-spacing: 0.24em;
+        font-size: 0.82rem;
+        font-weight: 700;
+        margin-bottom: 14px;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.12;
+        letter-spacing: -0.03em;
+        color: var(--white);
+        margin-bottom: 22px;
+      }
+
+      .section-copy {
+        font-size: 1.08rem;
+        color: var(--muted);
+      }
+
+      .two-column {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 32px;
+        align-items: center;
+        margin-bottom: 72px;
+      }
+
+      .video-shell {
+        padding: 16px;
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        background: var(--panel-soft);
+      }
+
+      .video-frame {
+        position: relative;
+        padding-top: 56.25%;
+        overflow: hidden;
+        border-radius: 22px;
+        border: 1px solid var(--border);
+        background: rgba(15, 23, 42, 0.7);
+      }
+
+      .video-frame iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .bullet-list {
+        margin: 24px 0 0;
+        padding-left: 22px;
+        color: var(--muted);
+        font-size: 1.08rem;
+      }
+
+      .bullet-list li + li {
+        margin-top: 10px;
+      }
+
+      .digital-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.75fr);
+        gap: 24px;
+        align-items: start;
+        margin-bottom: 72px;
+      }
+
+      .digital-main-card,
+      .digital-side-card,
+      .value-card {
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        background: var(--panel-soft);
+      }
+
+      .digital-main-card {
+        padding: 30px;
+      }
+
+      .digital-side-card {
+        padding: 24px;
+      }
+
+      .digital-main-card h3,
+      .digital-side-card h3,
+      .value-card h3 {
+        margin-bottom: 18px;
+        color: var(--white);
+        font-size: 1.3rem;
+        line-height: 1.3;
+      }
+
+      .digital-main-card p,
+      .digital-side-card p,
+      .value-card p {
+        color: var(--muted);
+        margin-bottom: 16px;
+      }
+
+      .digital-main-card p:last-child,
+      .digital-side-card p:last-child,
+      .value-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 26px;
+        padding: 28px;
+        background: var(--panel-soft);
+      }
+
+      .card h3 {
+        color: var(--white);
+        font-size: 1.2rem;
+        margin-bottom: 14px;
+      }
+
+      .card p {
+        color: var(--muted);
+        margin-bottom: 0;
+      }
+
+      .value-strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin: 28px 0 72px;
+      }
+
+      .value-card {
+        padding: 22px;
+      }
+
+      .value-card span {
+        display: inline-flex;
+        color: var(--green);
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+
+      .beyond-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .beyond-card {
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        overflow: hidden;
+        background: var(--panel-soft);
+      }
+
+      .beyond-photo {
+        width: 78%;
+        max-width: 190px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        display: block;
+        margin: 20px auto 0;
+        border-radius: 20px;
+      }
+
+      .beyond-card-body {
+        padding: 18px 24px 24px;
+        text-align: center;
+      }
+
+      .beyond-card h3 {
+        color: var(--white);
+        font-size: 1.18rem;
+        margin-bottom: 14px;
+      }
+
+      .beyond-card p {
+        color: var(--muted);
+        margin-bottom: 0;
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 28px 0 40px;
+      }
+
+      footer p {
+        max-width: 760px;
+        color: rgba(255, 255, 255, 0.62);
+        margin-bottom: 0;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .two-column,
+        .card-grid,
+        .digital-layout,
+        .value-strip,
+        .beyond-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-grid {
+          padding: 64px 0;
+        }
+
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          width: min(1120px, calc(100% - 24px));
+        }
+
+        .panel,
+        .card,
+        .video-shell,
+        .digital-main-card,
+        .digital-side-card,
+        .value-card,
+        .beyond-card-body {
+          padding: 20px;
+        }
+
+        .nav-links {
+          gap: 14px;
+        }
+
+        .beyond-photo {
+          width: 72%;
+          max-width: 170px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container nav">
+        <a
+          class="brand"
+          href="https://www.linkedin.com/in/wen-ching-fang/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Wen-Ching Fang
+        </a>
+
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#intro">About me</a>
+          <a href="#investing">Investing & digital</a>
+          <a href="#program">Why this program</a>
+          <a href="#beyond">Beyond work</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1 id="hero-title"></h1>
+          <p class="hero-copy">This is me beyond the CV.</p>
+          <a class="cta" href="#overview">Meet me in 60 seconds</a>
+        </div>
+
+        <aside class="panel" aria-labelledby="expect-title">
+          <div class="eyebrow">What to expect</div>
+          <p id="expect-title" class="panel-intro">
+            I know you review many applications, so I designed this website to make it easy to understand how my experience connects to Scalable Capital’s Graduate Program in Investments & Banking in a clear, personal, and efficient way.
+          </p>
+
+          <div class="expect-list">
+            <a class="expect-item" href="#intro">
+              <span class="expect-number">1</span>
+              <span>
+                <strong>Who I am in just 60 seconds</strong>
+              </span>
+            </a>
+
+            <a class="expect-item" href="#investing">
+              <span class="expect-number">2</span>
+              <span>
+                <strong>My interest in investing, fintech, and digital products</strong>
+              </span>
+            </a>
+
+            <a class="expect-item" href="#program">
+              <span class="expect-number">3</span>
+              <span>
+                <strong>Why the Graduate program at Scalable Capital</strong>
+              </span>
+            </a>
+
+            <a class="expect-item" href="#beyond">
+              <span class="expect-number">4</span>
+              <span>
+                <strong>Beyond Work</strong>
+              </span>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <main id="main-content" class="main-content">
+      <div class="container">
+        <section id="overview" class="intro-block" aria-labelledby="overview-title">
+          <div class="section-label">Introduction</div>
+          <h2 id="overview-title" class="section-title">Get to know me</h2>
+          <p class="section-copy">
+            Instead of a traditional cover letter, I created this website to introduce myself more personally. I am curious, internationally minded, and motivated by financial services that combine technology, usability, and trust. 
+          </p>
+        </section>
+
+        <section id="intro" class="two-column" aria-labelledby="intro-title">
+          <div class="video-shell">
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/DHBbuGBwAMw"
+                title="Meet me in 60 seconds"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-label">01</div>
+            <h2 id="intro-title" class="section-title">Meet me in 60 seconds</h2>
+            <ul class="bullet-list">
+              <li>Who I am in one minute</li>
+              <li>My international journey across Taiwan, France, and Germany</li>
+              <li>The ownership mindset I bring to new environments, ambiguity, and fast learning</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="investing" class="narrow-section" aria-labelledby="investing-title">
+          <div class="section-label">02</div>
+          <h2 id="investing-title" class="section-title">Why investing, banking, and digital products</h2>
+
+          <div class="digital-layout">
+            <article class="digital-main-card">
+              <h3>From startup challenges to practical digital solutions</h3>
+              <p>
+                Co-founding my own patisserie startup taught me an early lesson: technology is only meaningful when it solves real problems. When the COVID-19 pandemic hit Taiwan shortly after our launch, we had to adapt quickly from a physical storefront to an online delivery model. To manage the sudden increase in digital inquiries, I built and deployed an automated customer service chatbot on LINE.
+              </p>
+              <p>
+                Through that experience, I learned what users and business owners truly value in technology: not flashy features, but reliable, intuitive tools that reduce friction and make daily decisions easier. That is also what attracts me to digital investing products. When finance becomes simple, transparent, and accessible, more people can participate with confidence.
+              </p>
+              <p>
+                I carried the same approach into my internship at Crescendo Lab, where I helped build the digital infrastructure for a B2B tech product launch. By integrating Google Analytics to track user behavior and refining our omnichannel strategy, we engaged more than 400 brands and exceeded our launch target by 25%. Whether I am solving a bottleneck for a small business or evaluating digital performance for hundreds of B2B clients, I am driven by the same objective: creating digital solutions with measurable, practical impact.
+              </p>
+            </article>
+
+            <article class="digital-side-card">
+              <h3>Investment products need trust, not just growth</h3>
+              <p>
+                Scalable Capital’s mission resonates with me because investing is both personal and long-term. People are not only trusting a platform with money; they are trusting it with future goals, security, and choice.
+              </p>
+              <p>
+                My Risk Management background taught me to look at innovation through a safety-first lens. During my internship in portfolio risk governance, I learned how controls, transparency, and data-driven decisions protect both clients and institutions. This is the perspective I would bring to a digital bank: build for scale, but never lose sight of responsibility.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="program" class="narrow-section" aria-labelledby="program-title">
+          <div class="section-label">03</div>
+          <h2 id="program-title" class="section-title">Why the Investments & Banking Graduate Program</h2>
+
+          <div class="card-grid">
+            <article class="card">
+              <h3>Business rotations: understanding how value is built</h3>
+              <p>
+                I am especially excited by the opportunity to rotate through business functions such as Product, Finance, Operations, Marketing, or the CEO Office. My experience has taught me to connect customer needs, data, and execution. At Scalable Capital, I would like to deepen that perspective in the context of investing and banking products used by clients across Europe.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Control rotations: understanding how trust is protected</h3>
+              <p>
+                The program’s control-function rotations are equally important to me. Areas such as Risk Management, AML, and Compliance are not separate from innovation; they make sustainable innovation possible. My academic focus in Risk Management and my practical experience with responsible AI training have shaped how I think: move quickly, but with clarity, evidence, and safeguards.
+              </p>
+            </article>
+          </div>
+
+          <div class="value-strip" aria-label="Personal fit with Scalable Capital values">
+            <article class="value-card">
+              <span>01</span>
+              <h3>Make things simpler</h3>
+              <p>
+                I enjoy translating complex topics into clear actions — whether through customer automation, analytics dashboards, or training colleagues on practical applications of Large Language Models.
+              </p>
+            </article>
+
+            <article class="value-card">
+              <span>02</span>
+              <h3>Never assume</h3>
+              <p>
+                I like using both quantitative and qualitative evidence before making decisions. Data helps me challenge assumptions, especially when user behavior does not match expectations.
+              </p>
+            </article>
+
+            <article class="value-card">
+              <span>03</span>
+              <h3>Act like an owner</h3>
+              <p>
+                Starting a business taught me that ownership means finishing what you start, taking responsibility when circumstances change, and caring about outcomes beyond your own task list.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="international" class="narrow-section" aria-labelledby="international-title">
+          <div class="section-label">04</div>
+          <h2 id="international-title" class="section-title">An international mindset for a European fintech</h2>
+
+          <div class="card-grid">
+            <article class="card">
+              <h3>Built across Taiwan, France, and Germany</h3>
+              <p>
+                Studying and working across Taiwan, France, and Germany taught me how to adapt quickly, listen carefully, and connect different ways of working. In a company serving clients across Europe, I believe this international perspective matters: financial products have to feel local, understandable, and trustworthy while being scalable across markets.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Ready for pace, ambiguity, and learning</h3>
+              <p>
+                I am drawn to environments where responsibility comes early and learning happens through execution. The four six-month rotations are exactly the kind of challenge I am looking for: broad enough to build a holistic view, but practical enough to contribute from day one.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="beyond" class="narrow-section" aria-labelledby="beyond-title" style="margin-top: 72px; margin-bottom: 0;">
+          <div class="section-label">05</div>
+          <h2 id="beyond-title" class="section-title">What shapes me beyond work</h2>
+          <p class="section-copy" style="max-width: 760px; margin-bottom: 32px;">
+            Beyond academics and work, some of my most meaningful lessons have come from exploration, discipline, and community.
+          </p>
+
+          <div class="beyond-grid">
+            <article class="beyond-card">
+              <img class="beyond-photo" src="./scuba.jpg" alt="Wen-Ching scuba diving" />
+              <div class="beyond-card-body">
+                <h3>Calm under pressure</h3>
+                <p>Licensed Open Water Diver · 20+ dives</p>
+              </div>
+            </article>
+
+            <article class="beyond-card">
+              <img class="beyond-photo" src="./piano.jpg" alt="Wen-Ching and music" />
+              <div class="beyond-card-body">
+                <h3>Structured, but expressive</h3>
+                <p>Learning piano since age 3 · Started a band at 18</p>
+              </div>
+            </article>
+
+            <article class="beyond-card">
+              <img class="beyond-photo" src="./taiwan-initiative.jpg" alt="Wen-Ching representing Taiwan at an international event" />
+              <div class="beyond-card-body">
+                <h3>Culture as connection</h3>
+                <p>Represented Taiwan · Led International Day initiatives</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>
+          Thank you for taking the time to explore my application. I look forward to the opportunity to discuss how I could contribute to Scalable Capital’s Graduate Program in Investments & Banking.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var hour = new Date().getHours();
+        var greeting = "Good evening,";
+        if (hour < 12) greeting = "Good morning,";
+        else if (hour < 18) greeting = "Good afternoon,";
+
+        var title = document.getElementById("hero-title");
+        if (title) {
+          title.textContent = greeting + " Scalable Capital team";
+        }
+      })();
+    </script>
+  </body>
+</html>
