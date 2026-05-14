@@ -5,18 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Graduate Program Application | Wen-Ching Fang</title>
     <style>
-:root {
-  --green: #22e6d0;
-  --mint: #c9f4ef;
-  --navy: #0b0d0e;
-  --deep: #111617;
-  --cream: #f4f4f1;
-  --white: #ffffff;
-  --muted: rgba(244, 244, 241, 0.74);
-  --border: rgba(255, 255, 255, 0.16);
-  --panel: rgba(17, 22, 23, 0.82);
-  --panel-soft: rgba(255, 255, 255, 0.055);
-}
+      :root {
+        --green: #2de6d1;
+        --mint: #c7f3ee;
+
+        /* Softer than black, still close to Scalable's dark brand feeling */
+        --navy: #071f1d;
+        --deep: #0d2a27;
+
+        --cream: #f4f4f1;
+        --white: #ffffff;
+        --muted: rgba(244, 244, 241, 0.76);
+
+        --border: rgba(255, 255, 255, 0.13);
+
+        --panel: rgba(13, 42, 39, 0.78);
+        --panel-soft: rgba(255, 255, 255, 0.06);
+      }
 
       * {
         box-sizing: border-box;
@@ -29,7 +34,9 @@
       body {
         margin: 0;
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background: var(--navy);
+        background:
+          radial-gradient(circle at top left, rgba(45, 230, 209, 0.08), transparent 34%),
+          var(--navy);
         color: var(--cream);
         line-height: 1.6;
       }
@@ -60,8 +67,8 @@
         top: 0;
         z-index: 50;
         backdrop-filter: blur(14px);
-        background: rgba(7, 31, 26, 0.86);
-        border-bottom: 1px solid var(--border);
+        background: rgba(7, 31, 29, 0.68);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
 
       .container {
@@ -116,9 +123,14 @@
         content: "";
         position: absolute;
         inset: 0;
-  background-image:
-    linear-gradient(90deg, rgba(11, 13, 14, 0.95) 0%, rgba(11, 13, 14, 0.72) 42%, rgba(11, 13, 14, 0.92) 100%),
-    url("./scalable-hero.jpeg");
+        background-image:
+          linear-gradient(
+            90deg,
+            rgba(7, 31, 29, 0.92) 0%,
+            rgba(7, 31, 29, 0.74) 42%,
+            rgba(7, 31, 29, 0.88) 100%
+          ),
+          url("./scalable-hero.jpeg");
         background-size: cover;
         background-position: center;
       }
@@ -127,9 +139,9 @@
         content: "";
         position: absolute;
         inset: 0;
-  background:
-    radial-gradient(circle at top left, rgba(34, 230, 208, 0.22), transparent 28%),
-    radial-gradient(circle at 80% 20%, rgba(201, 244, 239, 0.1), transparent 24%);
+        background:
+          radial-gradient(circle at top left, rgba(45, 230, 209, 0.22), transparent 28%),
+          radial-gradient(circle at 80% 20%, rgba(199, 243, 238, 0.1), transparent 24%);
       }
 
       .hero-grid {
@@ -174,7 +186,7 @@
         font-weight: 800;
         text-decoration: none;
         padding: 14px 24px;
-        box-shadow: 0 10px 30px rgba(0, 208, 132, 0.2);
+        box-shadow: 0 10px 30px rgba(45, 230, 209, 0.18);
       }
 
       .panel {
@@ -182,7 +194,7 @@
         border: 1px solid var(--border);
         border-radius: 28px;
         padding: 28px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
       }
 
       .eyebrow {
@@ -212,7 +224,7 @@
         padding: 16px;
         border: 1px solid var(--border);
         border-radius: 20px;
-        background: rgba(15, 23, 42, 0.42);
+        background: rgba(255, 255, 255, 0.045);
         text-decoration: none;
         color: inherit;
       }
@@ -224,7 +236,7 @@
         align-items: center;
         justify-content: center;
         border-radius: 999px;
-        background: rgba(0, 208, 132, 0.16);
+        background: rgba(45, 230, 209, 0.15);
         color: var(--green);
         font-weight: 800;
         font-size: 0.95rem;
@@ -299,7 +311,7 @@
         overflow: hidden;
         border-radius: 22px;
         border: 1px solid var(--border);
-        background: rgba(15, 23, 42, 0.7);
+        background: rgba(13, 42, 39, 0.7);
       }
 
       .video-frame iframe {
@@ -385,6 +397,10 @@
 
       .card p {
         color: var(--muted);
+        margin-bottom: 16px;
+      }
+
+      .card p:last-child {
         margin-bottom: 0;
       }
 
@@ -499,6 +515,10 @@
           gap: 14px;
         }
 
+        .hero h1 {
+          margin-bottom: 42px;
+        }
+
         .beyond-photo {
           width: 72%;
           max-width: 170px;
@@ -506,6 +526,7 @@
       }
     </style>
   </head>
+
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
@@ -540,7 +561,7 @@
         <aside class="panel" aria-labelledby="expect-title">
           <div class="eyebrow">What to expect</div>
           <p id="expect-title" class="panel-intro">
-            I know you are reviewing many applications, so I made this page makes it easier to get to know me beyond my CV — efficiently, clearly, and personally.          
+            I know you are reviewing many applications, so I hope this page makes it easier to get to know me beyond my CV — efficiently, clearly, and personally.
           </p>
 
           <div class="expect-list">
@@ -568,7 +589,7 @@
             <a class="expect-item" href="#beyond">
               <span class="expect-number">4</span>
               <span>
-                <strong>Outside work </strong>
+                <strong>Outside work</strong>
               </span>
             </a>
           </div>
@@ -608,25 +629,27 @@
 
         <section id="why-scalable" class="narrow-section" aria-labelledby="why-scalable-title">
           <div class="section-label">02 · Why Scalable?</div>
-          <h2 id="why-scalable-title" class="section-title">Where personal investing meets responsible scale</h2>
+          <h2 id="why-scalable-title" class="section-title">Making investing easier, without making it careless</h2>
 
           <div class="digital-layout">
             <article class="digital-main-card">
-              <h3>From patisserie startup to resilience in action</h3>
+              <h3>Digital products should make life simpler</h3>
               <p>
-                Co-founding my own patisserie startup taught me how to stay calm, resourceful, and committed when plans change overnight. When COVID-19 hit Taiwan shortly after our launch, we shifted from a physical storefront to an online delivery model and I built a LINE chatbot to manage the increase in customer inquiries.
+                Co-founding my patisserie startup taught me that technology only matters when it solves a real problem. When COVID-19 hit Taiwan shortly after our launch, we shifted from a physical storefront to an online delivery model, and I built a LINE chatbot to manage the increase in customer inquiries.
               </p>
               <p>
-                That experience shaped how I work today: stay close to the customer, adjust quickly, and turn uncertainty into concrete next steps. This is one reason Scalable Capital attracts me: it combines fast execution with products that need to feel simple, reliable, and useful in people’s financial lives.
+                That experience shaped how I think about digital products: they should reduce friction, make decisions easier, and create practical value for users. This is why Scalable Capital’s mission resonates with me. Making investing easier, more affordable, and more accessible is not just a product idea — it is a way to improve people’s financial lives.
               </p>
             </article>
 
             <article class="digital-side-card">
-              <h3>From investment risk oversight to this graduate program</h3>
+              <h3>Access to investing needs trust behind it</h3>
               <p>
-                At DWS, my internship in investment risk management gave me exposure to how investment products are traded and monitored afterwards: portfolio risks, investment guidelines, governance processes, and the controls that ensure funds remain resilient.              </p>
+                At DWS, my internship in investment risk management gave me exposure to portfolio oversight, investment guidelines, governance processes, and the controls behind financial products. It helped me understand that when people trust a platform with their money, they are also trusting it with their time, plans, and future choices.
+              </p>
               <p>
-                That experience made me eager to understand the other side of the investment value chain: how clients access financial markets in the first place. Scalable Capital stands out to me because it combines brokerage, digital wealth management and institutional partnerships. Through the Graduate Program, I would like to contribute my foundation in capital markets, financial products, and risk awareness while learning how modern investment and banking products are scaled for clients across Europe.              </p>
+                This is why Scalable Capital stands out to me. It combines access and freedom of choice with a regulated environment where transparency, risk awareness, and responsible decision-making matter. Through the Graduate Program, I want to understand both sides: how investment and banking products are built for clients, and how they are governed so clients can trust them over the long term.
+              </p>
             </article>
           </div>
         </section>
@@ -634,7 +657,7 @@
         <section id="fit" class="narrow-section" aria-labelledby="fit-title">
           <div class="section-label">03 · My digital mindset in finance</div>
           <h2 id="fit-title" class="section-title">Understanding financial products from both the market and user side</h2>
-        
+
           <div class="card-grid">
             <article class="card">
               <h3>Across the investment value chain</h3>
@@ -645,7 +668,7 @@
                 In securities services, I gained insight into the post-trade side of financial markets, including how transactions are processed for institutional clients after execution. Together, these experiences helped me understand not only investment products themselves, but also the infrastructure that allows markets to function reliably at scale.
               </p>
             </article>
-        
+
             <article class="card">
               <h3>Digital execution with ownership</h3>
               <p>
@@ -670,7 +693,7 @@
               <img class="beyond-photo" src="./scuba.jpg" alt="Wen-Ching scuba diving" />
               <div class="beyond-card-body">
                 <h3>Calm under pressure</h3>
-                <p>Licensed Scuba diving · 10+ Dives</p>
+                <p>Licensed scuba diver · 10+ dives</p>
               </div>
             </article>
 
@@ -678,7 +701,7 @@
               <img class="beyond-photo" src="./piano.jpg" alt="Wen-Ching and music" />
               <div class="beyond-card-body">
                 <h3>Discipline & expression</h3>
-                <p>Learning piano since age 3 · Started a Band at 15</p>
+                <p>Learning piano since age 3 · Started a band at 15</p>
               </div>
             </article>
 
@@ -689,7 +712,6 @@
                 <p>International initiatives</p>
               </div>
             </article>
-
           </div>
         </section>
       </div>
