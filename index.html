@@ -118,7 +118,7 @@
         inset: 0;
         background-image:
           linear-gradient(90deg, rgba(7, 31, 26, 0.94) 0%, rgba(7, 31, 26, 0.76) 42%, rgba(7, 31, 26, 0.92) 100%),
-          url("./munich-fintech.jpeg");
+          url("./scalable-hero.jpeg");
         background-size: cover;
         background-position: center;
       }
@@ -155,7 +155,7 @@
         line-height: 1.05;
         letter-spacing: -0.04em;
         color: var(--white);
-        margin-bottom: 24px;
+        margin-bottom: 72px;
       }
 
       .hero-copy {
@@ -323,10 +323,10 @@
 
       .digital-layout {
         display: grid;
-        grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.75fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 24px;
         align-items: start;
-        margin-bottom: 72px;
+        margin-bottom: 24px;
       }
 
       .digital-main-card,
@@ -337,12 +337,9 @@
         background: var(--panel-soft);
       }
 
-      .digital-main-card {
-        padding: 30px;
-      }
-
+      .digital-main-card,
       .digital-side-card {
-        padding: 24px;
+        padding: 28px;
       }
 
       .digital-main-card h3,
@@ -413,6 +410,10 @@
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 24px;
+      }
+
+      .beyond-grid.four-up {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
 
       .beyond-card {
@@ -520,10 +521,10 @@
         </a>
 
         <nav class="nav-links" aria-label="Primary">
-          <a href="#intro">About me</a>
-          <a href="#investing">Investing & digital</a>
-          <a href="#program">Why this program</a>
-          <a href="#beyond">Beyond work</a>
+          <a href="#intro">Intro</a>
+          <a href="#why-scalable">Why Scalable?</a>
+          <a href="#fit">My fit</a>
+          <a href="#beyond">Outside work</a>
         </nav>
       </div>
     </header>
@@ -533,41 +534,41 @@
         <div>
           <h1 id="hero-title"></h1>
           <p class="hero-copy">This is me beyond the CV.</p>
-          <a class="cta" href="#overview">Meet me in 60 seconds</a>
+          <a class="cta" href="#intro">Meet me in 60 seconds</a>
         </div>
 
         <aside class="panel" aria-labelledby="expect-title">
           <div class="eyebrow">What to expect</div>
           <p id="expect-title" class="panel-intro">
-            I know you review many applications, so I designed this website to make it easy to understand how my experience connects to Scalable Capital’s Graduate Program in Investments & Banking in a clear, personal, and efficient way.
+            I know you are reviewing many applications, so I made this page makes it easier to get to know me beyond my CV — efficiently, clearly, and personally.          
           </p>
 
           <div class="expect-list">
             <a class="expect-item" href="#intro">
               <span class="expect-number">1</span>
               <span>
-                <strong>Who I am in just 60 seconds</strong>
+                <strong>Meet me in 60 seconds</strong>
               </span>
             </a>
 
-            <a class="expect-item" href="#investing">
+            <a class="expect-item" href="#why-scalable">
               <span class="expect-number">2</span>
               <span>
-                <strong>My interest in investing, fintech, and digital products</strong>
+                <strong>Why Scalable Capital?</strong>
               </span>
             </a>
 
-            <a class="expect-item" href="#program">
+            <a class="expect-item" href="#fit">
               <span class="expect-number">3</span>
               <span>
-                <strong>Why the Graduate program at Scalable Capital</strong>
+                <strong>How I connect finance, technology, and ownership</strong>
               </span>
             </a>
 
             <a class="expect-item" href="#beyond">
               <span class="expect-number">4</span>
               <span>
-                <strong>Beyond Work</strong>
+                <strong>Outside work </strong>
               </span>
             </a>
           </div>
@@ -577,14 +578,6 @@
 
     <main id="main-content" class="main-content">
       <div class="container">
-        <section id="overview" class="intro-block" aria-labelledby="overview-title">
-          <div class="section-label">Introduction</div>
-          <h2 id="overview-title" class="section-title">Get to know me</h2>
-          <p class="section-copy">
-            Instead of a traditional cover letter, I created this website to introduce myself more personally. I am curious, internationally minded, and motivated by financial services that combine technology, usability, and trust. 
-          </p>
-        </section>
-
         <section id="intro" class="two-column" aria-labelledby="intro-title">
           <div class="video-shell">
             <div class="video-frame">
@@ -600,135 +593,92 @@
           </div>
 
           <div>
-            <div class="section-label">01</div>
+            <div class="section-label">01 · Intro</div>
             <h2 id="intro-title" class="section-title">Meet me in 60 seconds</h2>
+            <p class="section-copy">
+              I am curious, internationally minded, and motivated by financial services that make investing more accessible while remaining reliable, analytical, and responsibly managed.
+            </p>
             <ul class="bullet-list">
-              <li>Who I am in one minute</li>
-              <li>My international journey across Taiwan, France, and Germany</li>
-              <li>The ownership mindset I bring to new environments, ambiguity, and fast learning</li>
+              <li>Investment-risk experience across portfolio oversight, governance, and quantitative decision-making</li>
+              <li>Post-trade exposure from securities services, with insight into how institutional trades are processed after execution</li>
+              <li>Startup mindset shaped by ownership, customer focus, adaptability, and practical digital problem-solving</li>
             </ul>
           </div>
         </section>
 
-        <section id="investing" class="narrow-section" aria-labelledby="investing-title">
-          <div class="section-label">02</div>
-          <h2 id="investing-title" class="section-title">Why investing, banking, and digital products</h2>
+        <section id="why-scalable" class="narrow-section" aria-labelledby="why-scalable-title">
+          <div class="section-label">02 · Why Scalable?</div>
+          <h2 id="why-scalable-title" class="section-title">Where personal investing meets responsible scale</h2>
 
           <div class="digital-layout">
             <article class="digital-main-card">
-              <h3>From startup challenges to practical digital solutions</h3>
+              <h3>From patisserie startup to resilience in action</h3>
               <p>
-                Co-founding my own patisserie startup taught me an early lesson: technology is only meaningful when it solves real problems. When the COVID-19 pandemic hit Taiwan shortly after our launch, we had to adapt quickly from a physical storefront to an online delivery model. To manage the sudden increase in digital inquiries, I built and deployed an automated customer service chatbot on LINE.
+                Co-founding my own patisserie startup taught me how to stay calm, resourceful, and committed when plans change overnight. When COVID-19 hit Taiwan shortly after our launch, we shifted from a physical storefront to an online delivery model and I built a LINE chatbot to manage the increase in customer inquiries.
               </p>
               <p>
-                Through that experience, I learned what users and business owners truly value in technology: not flashy features, but reliable, intuitive tools that reduce friction and make daily decisions easier. That is also what attracts me to digital investing products. When finance becomes simple, transparent, and accessible, more people can participate with confidence.
-              </p>
-              <p>
-                I carried the same approach into my internship at Crescendo Lab, where I helped build the digital infrastructure for a B2B tech product launch. By integrating Google Analytics to track user behavior and refining our omnichannel strategy, we engaged more than 400 brands and exceeded our launch target by 25%. Whether I am solving a bottleneck for a small business or evaluating digital performance for hundreds of B2B clients, I am driven by the same objective: creating digital solutions with measurable, practical impact.
+                That experience shaped how I work today: stay close to the customer, adjust quickly, and turn uncertainty into concrete next steps. This is one reason Scalable Capital attracts me: it combines fast execution with products that need to feel simple, reliable, and useful in people’s financial lives.
               </p>
             </article>
 
             <article class="digital-side-card">
-              <h3>Investment products need trust, not just growth</h3>
+              <h3>From investment risk oversight to this graduate program</h3>
               <p>
-                Scalable Capital’s mission resonates with me because investing is both personal and long-term. People are not only trusting a platform with money; they are trusting it with future goals, security, and choice.
-              </p>
+                At DWS, my internship in investment risk management gave me exposure to how investment products are traded and monitored afterwards: portfolio risks, investment guidelines, governance processes, and the controls that ensure funds remain resilient.              </p>
               <p>
-                My Risk Management background taught me to look at innovation through a safety-first lens. During my internship in portfolio risk governance, I learned how controls, transparency, and data-driven decisions protect both clients and institutions. This is the perspective I would bring to a digital bank: build for scale, but never lose sight of responsibility.
-              </p>
+                That experience made me eager to understand the other side of the investment value chain: how clients access financial markets in the first place. Scalable Capital stands out to me because it combines brokerage, digital wealth management and institutional partnerships. Through the Graduate Program, I would like to contribute my foundation in capital markets, financial products, and risk awareness while learning how modern investment and banking products are scaled for clients across Europe.              </p>
             </article>
           </div>
         </section>
 
-        <section id="program" class="narrow-section" aria-labelledby="program-title">
-          <div class="section-label">03</div>
-          <h2 id="program-title" class="section-title">Why the Investments & Banking Graduate Program</h2>
-
+        <section id="fit" class="narrow-section" aria-labelledby="fit-title">
+          <div class="section-label">03 · My digital mindset in finance</div>
+          <h2 id="fit-title" class="section-title">Understanding financial products from both the market and user side</h2>
+        
           <div class="card-grid">
             <article class="card">
-              <h3>Business rotations: understanding how value is built</h3>
+              <h3>Across the investment value chain</h3>
               <p>
-                I am especially excited by the opportunity to rotate through business functions such as Product, Finance, Operations, Marketing, or the CEO Office. My experience has taught me to connect customer needs, data, and execution. At Scalable Capital, I would like to deepen that perspective in the context of investing and banking products used by clients across Europe.
+                My finance internships gave me exposure to two important parts of the investment value chain. In investment risk management, I worked close to portfolio oversight, risk monitoring, and quantitative models, which strengthened my interest in how data and assumptions support investment decisions.
+              </p>
+              <p>
+                In securities services, I gained insight into the post-trade side of financial markets, including how transactions are processed for institutional clients after execution. Together, these experiences helped me understand not only investment products themselves, but also the infrastructure that allows markets to function reliably at scale.
               </p>
             </article>
-
+        
             <article class="card">
-              <h3>Control rotations: understanding how trust is protected</h3>
+              <h3>Digital execution with ownership</h3>
               <p>
-                The program’s control-function rotations are equally important to me. Areas such as Risk Management, AML, and Compliance are not separate from innovation; they make sustainable innovation possible. My academic focus in Risk Management and my practical experience with responsible AI training have shaped how I think: move quickly, but with clarity, evidence, and safeguards.
+                My startup experience taught me to approach problems from the customer’s perspective and take responsibility beyond a defined role. When our business had to shift online, I built a LINE chatbot to make customer communication faster and more efficient.
               </p>
-            </article>
-          </div>
-
-          <div class="value-strip" aria-label="Personal fit with Scalable Capital values">
-            <article class="value-card">
-              <span>01</span>
-              <h3>Make things simpler</h3>
               <p>
-                I enjoy translating complex topics into clear actions — whether through customer automation, analytics dashboards, or training colleagues on practical applications of Large Language Models.
-              </p>
-            </article>
-
-            <article class="value-card">
-              <span>02</span>
-              <h3>Never assume</h3>
-              <p>
-                I like using both quantitative and qualitative evidence before making decisions. Data helps me challenge assumptions, especially when user behavior does not match expectations.
-              </p>
-            </article>
-
-            <article class="value-card">
-              <span>03</span>
-              <h3>Act like an owner</h3>
-              <p>
-                Starting a business taught me that ownership means finishing what you start, taking responsibility when circumstances change, and caring about outcomes beyond your own task list.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section id="international" class="narrow-section" aria-labelledby="international-title">
-          <div class="section-label">04</div>
-          <h2 id="international-title" class="section-title">An international mindset for a European fintech</h2>
-
-          <div class="card-grid">
-            <article class="card">
-              <h3>Built across Taiwan, France, and Germany</h3>
-              <p>
-                Studying and working across Taiwan, France, and Germany taught me how to adapt quickly, listen carefully, and connect different ways of working. In a company serving clients across Europe, I believe this international perspective matters: financial products have to feel local, understandable, and trustworthy while being scalable across markets.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3>Ready for pace, ambiguity, and learning</h3>
-              <p>
-                I am drawn to environments where responsibility comes early and learning happens through execution. The four six-month rotations are exactly the kind of challenge I am looking for: broad enough to build a holistic view, but practical enough to contribute from day one.
+                That experience shaped my digital mindset: technology should make complex processes simpler, more reliable, and easier to use. This is the perspective I would bring to financial products as well — combining analytical thinking with practical execution and a strong sense of ownership.
               </p>
             </article>
           </div>
         </section>
 
         <section id="beyond" class="narrow-section" aria-labelledby="beyond-title" style="margin-top: 72px; margin-bottom: 0;">
-          <div class="section-label">05</div>
+          <div class="section-label">04 · Outside work</div>
           <h2 id="beyond-title" class="section-title">What shapes me beyond work</h2>
           <p class="section-copy" style="max-width: 760px; margin-bottom: 32px;">
-            Beyond academics and work, some of my most meaningful lessons have come from exploration, discipline, and community.
+            A few snapshots of what keeps me curious, disciplined, and open to new perspectives.
           </p>
 
-          <div class="beyond-grid">
+          <div class="beyond-grid four-up">
             <article class="beyond-card">
               <img class="beyond-photo" src="./scuba.jpg" alt="Wen-Ching scuba diving" />
               <div class="beyond-card-body">
                 <h3>Calm under pressure</h3>
-                <p>Licensed Open Water Diver · 20+ dives</p>
+                <p>Scuba diving</p>
               </div>
             </article>
 
             <article class="beyond-card">
               <img class="beyond-photo" src="./piano.jpg" alt="Wen-Ching and music" />
               <div class="beyond-card-body">
-                <h3>Structured, but expressive</h3>
-                <p>Learning piano since age 3 · Started a band at 18</p>
+                <h3>Discipline & expression</h3>
+                <p>Piano · Band</p>
               </div>
             </article>
 
@@ -736,7 +686,15 @@
               <img class="beyond-photo" src="./taiwan-initiative.jpg" alt="Wen-Ching representing Taiwan at an international event" />
               <div class="beyond-card-body">
                 <h3>Culture as connection</h3>
-                <p>Represented Taiwan · Led International Day initiatives</p>
+                <p>International initiatives</p>
+              </div>
+            </article>
+
+            <article class="beyond-card">
+              <img class="beyond-photo" src="./travel.jpg" alt="Wen-Ching exploring a new place" />
+              <div class="beyond-card-body">
+                <h3>Curiosity</h3>
+                <p>Exploring new perspectives</p>
               </div>
             </article>
           </div>
